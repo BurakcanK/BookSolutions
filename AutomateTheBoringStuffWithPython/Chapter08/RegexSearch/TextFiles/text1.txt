@@ -1,0 +1,5 @@
+This is a great day for python coding ! :)
+
+First of all this book is great for beginners.
+There are useful examples which allows you to improve yourself.
+It's concise and not verbose which is nice.

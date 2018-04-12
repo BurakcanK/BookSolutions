@@ -1,0 +1,4 @@
+It's awesome that I am almost finished with Chapter08, yayyy python !
+
+I have come thus far, I aim to solve all of the projects in this book,
+and upload them to github so that anyone who wants some answers can view them.
