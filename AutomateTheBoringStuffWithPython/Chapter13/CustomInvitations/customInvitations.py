@@ -14,9 +14,7 @@ doc = Document()
 # read the guests from the file
 guests = []
 with open('guests.txt', 'r') as guestsFile:
-    lines = guestsFile.readlines()
-
-    for line in lines:
+    for line in guestsFile:
         guests.append(line)
 
 # create custom styles
