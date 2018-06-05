@@ -1,0 +1,6 @@
+2018-06-05 23:58:24,829 DEBUG Connected to imap.gmail.com.
+2018-06-05 23:58:25,435 DEBUG Fetching and parsing the last email..
+2018-06-05 23:58:25,439 DEBUG Extracting the magnet link from email..
+2018-06-05 23:58:25,440 DEBUG Getting ready to send feedback email..
+2018-06-05 23:58:27,915 DEBUG Feedback email is sent..
+2018-06-05 23:58:27,915 DEBUG Waiting 15 mins..

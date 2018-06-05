@@ -24,7 +24,7 @@ for i in range(len(chores)):
     chores.remove(randomChore)
     emails.remove(randomEmail)
 
-# create a SMTP object
+# create an SMTP object
 smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
 
 # greet the SMTP server
