@@ -13,10 +13,7 @@ def run_game():
         (aiSettings.screenWidth, aiSettings.screenHeight))
 
     # make a ship
-    ship = Ship(screen)
-
-    # set the background color
-    bgColor = (230, 230, 230)
+    ship = Ship(aiSettings, screen)
 
     # start the main loop for the game
     while True:
@@ -24,6 +21,9 @@ def run_game():
         gf.checkEvents(ship)
         ship.update()
         gf.updateScreen(aiSettings, screen, ship)
+
+        # redraw the screen during each pass
+        screen.fill(aiSettings.bgColor)
 
 
 run_game()
