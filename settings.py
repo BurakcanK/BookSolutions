@@ -10,3 +10,20 @@ class Settings():
 
         # ship settings
         self.shipSpeedFactor = 1.5
+
+        # bullet settings
+        self.bulletSpeedFactor = 1
+        self.bulletWidth = 3
+        self.bulletHeight = 15
+        self.bulletColor = (60, 60, 60)
+        self.bulletsAllowed = 3
+
+    def printAllSettings(self):
+        print("Screen width:", self.screenWidth)
+        print("Screen height:", self.screenHeight)
+        print("Background color:", self.bgColor)
+        print("Ship speed:", self.shipSpeedFactor)
+        print("Bullet speed:", self.bulletSpeedFactor)
+        print("Bullet width:", self.bulletWidth)
+        print("Bullet height:", self.bulletHeight)
+        print("Bullet color:", self.bulletColor)
