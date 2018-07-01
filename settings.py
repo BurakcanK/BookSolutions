@@ -18,6 +18,12 @@ class Settings():
         self.bulletColor = (60, 60, 60)
         self.bulletsAllowed = 3
 
+        # alien settings
+        self.alienSpeedFactor = 1
+        self.fleetDropSpeed = 10
+        # fleetDirection of 1 represents right; -1 represents left
+        self.fleetDirection = 1
+
     def printAllSettings(self):
         print("Screen width:", self.screenWidth)
         print("Screen height:", self.screenHeight)
