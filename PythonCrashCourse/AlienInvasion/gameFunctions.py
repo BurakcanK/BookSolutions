@@ -27,7 +27,7 @@ def checkKeyUpEvents(event, ship):
         ship.movingLeft = False
 
 
-def checkEvents(aiSettings, screen, ship, bullets):
+def checkEvents(aiSettings, screen, stats, playButton, ship, aliens, bullets):
     """ Respond the keypresses and mouse events. """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -36,9 +36,13 @@ def checkEvents(aiSettings, screen, ship, bullets):
             checkKeyDownEvents(event, aiSettings, screen, ship, bullets)
         elif event.type == pygame.KEYUP:
             checkKeyUpEvents(event, ship)
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouseX, mouseY = pygame.mouse.get_pos()
+            checkPlayButton(aiSettings, screen, stats,
+                            playButton, ship, aliens, bullets, mouseX, mouseY)
 
 
-def updateScreen(aiSettings, screen, ship, aliens, bullets):
+def updateScreen(aiSettings, screen, stats, ship, aliens, bullets, playButton):
     # redraw the screen during each pass through the loop
     screen.fill(aiSettings.bgColor)
     ship.blitme()
@@ -47,8 +51,12 @@ def updateScreen(aiSettings, screen, ship, aliens, bullets):
     for bullet in bullets.sprites():
         bullet.drawBullet()
 
-    # draw the aliens on top of everything
+    # draw the aliens
     aliens.draw(screen)
+
+    # draw the play button if the game is inactive
+    if not stats.gameActive:
+        playButton.drawButton()
 
     # make the most recently drawn screen visible
     pygame.display.flip()
@@ -172,6 +180,7 @@ def shipHit(aiSettings, stats, screen, ship, aliens, bullets):
         sleep(0.5)
     else:
         stats.gameActive = False
+        pygame.mouse.set_visible(True)
 
 
 def checkAliensBottom(aiSettings, stats, screen, ship, aliens, bullets):
@@ -182,3 +191,23 @@ def checkAliensBottom(aiSettings, stats, screen, ship, aliens, bullets):
             # treat this the same as if the ship got hit
             shipHit(aiSettings, stats, screen, ship, aliens, bullets)
             break
+
+
+def checkPlayButton(aiSettings, screen, stats, playButton, ship, aliens, bullets, mouseX, mouseY):
+    """ Start a new game when the player clicks Play. """
+    buttonClicked = playButton.rect.collidepoint(mouseX, mouseY)
+    if buttonClicked and not stats.gameActive:
+        # hide the mouse cursor
+        pygame.mouse.set_visible(False)
+
+        # reset the game statistics
+        stats.resetStats()
+        stats.gameActive = True
+
+        # empty the list of aliens and bullets
+        aliens.empty()
+        bullets.empty()
+
+        # create a new fleet and center the ship
+        createFleet(aiSettings, screen, ship, aliens)
+        ship.centerShip()
