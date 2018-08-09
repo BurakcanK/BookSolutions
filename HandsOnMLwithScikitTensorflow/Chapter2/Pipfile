@@ -5,12 +5,13 @@ name = "pypi"
 
 [packages]
 matplotlib = "*"
-pygal = "*"
-pygal-maps-world = "*"
+numpy = "*"
+scipy = "*"
+sklearn = "*"
+pandas = "*"
+jupyter = "*"
 
 [dev-packages]
-pylint = "*"
-"autopep8" = "*"
 
 [requires]
 python_version = "3.6"
