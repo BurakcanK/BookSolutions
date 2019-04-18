@@ -1,6 +1,6 @@
-""" The Collatz Sequence with Input Validation
+"""The Collatz Sequence with Input Validation
 
-The given number always converges to 1.
+Converge the given number to 1.
 """
 
 def collatz(num):
@@ -22,7 +22,6 @@ try:
         num = collatz(num)
         if num == 1:
             break
-
-# in case of invalid input
 except ValueError:
+    # in case of invalid input
     print("Input must be an integer.")

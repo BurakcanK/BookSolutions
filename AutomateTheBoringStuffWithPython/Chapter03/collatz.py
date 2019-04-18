@@ -1,6 +1,6 @@
-""" The Collatz Sequence
+"""The Collatz Sequence
 
-The given number always converges to 1.
+Converge the given number to 1.
 """
 
 def collatz(num):
