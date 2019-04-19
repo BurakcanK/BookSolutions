@@ -1,13 +1,15 @@
-""" Strong Password Detection
+"""Strong Password Detection
 
-Determines if the given password is strong according to the rules;
+Determine if the given password is strong according to the rules;
 - at least 8 character
 - includes uppercase and lowercase
 - at least one digit
 """
 
-def isStrongPassword(password):
+
+def is_strong_password(password):
     import re
+
     # one regex for all the rules
     return bool(re.match(r"""^(?=.*[a-z])     # at least one lowercase (doesn't consume)
                               (?=.*[A-Z])     # at least one uppercase (doesn't consume)
@@ -15,4 +17,5 @@ def isStrongPassword(password):
                               [a-zA-Z0-9]{8,} # total 8 char long
                               $""", password, re.VERBOSE))
 
-print(strongPassword('MyPrecious1'))
+
+print(is_strong_password('MyPrecious1'))

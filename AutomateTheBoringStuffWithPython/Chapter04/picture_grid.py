@@ -16,5 +16,5 @@ grid = [[".", ".", ".", ".", ".", "."],
 # print every row in every column
 for col in range(len(grid[0])):
     for row in range(len(grid)):
-        print(grid[row][col], end = "")
+        print(grid[row][col], end="")
     print()

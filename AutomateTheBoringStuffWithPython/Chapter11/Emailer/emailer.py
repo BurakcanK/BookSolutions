@@ -1,4 +1,4 @@
-""" Command Line Emailer
+"""Command Line Emailer
 
 This program takes an email address and string of text from the CL and then,
 using Selenium, logs into your email account and sends an email of the string
@@ -9,14 +9,15 @@ only with outlook emails. Change <your email> and <your password> to your email
 and password respectively.
 
 Usage:
-    python Emailer.py <emailTo> <text>
+    python emailer.py <email_to> <text>
 """
 
+import sys
+import time
 from selenium import webdriver
-import sys, time
 
 if len(sys.argv) != 3:
-    print("Usage: python Emailer.py <emailTo> <text>")
+    print("Usage: python emailer.py <email_to> <text>")
     sys.exit()
 
 driver = webdriver.Chrome()

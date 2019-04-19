@@ -3,6 +3,7 @@
 Converge the given number to 1.
 """
 
+
 def collatz(num):
     # if the num is even, divide it by two
     if num % 2 == 0:
@@ -12,6 +13,7 @@ def collatz(num):
     else:
         print(3 * num + 1)
         return 3 * num + 1
+
 
 try:
     # prompt the user for an integer
