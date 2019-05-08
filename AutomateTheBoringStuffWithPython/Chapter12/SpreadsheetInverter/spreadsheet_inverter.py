@@ -1,20 +1,20 @@
-""" Spreadsheet Cell Inverter
+"""Spreadsheet Cell Inverter
 
-Inverts the row and column of the cells in the spreadsheet. Basically it is
+Invert the row and column of the cells in the spreadsheet. Basically it is
 similar to taking the transpose of a matrix.
 
 Usage:
-    python3 spreadsheetInverter.py <file>
+    python3 spreadsheet_inverter.py <file>
 """
 
-from openpyxl import Workbook
-import openpyxl
 import numpy
+import openpyxl
 import sys
+from openpyxl import Workbook
 
 # ensure usage
 if len(sys.argv) != 2:
-    print("Usage: python3 spreadsheetInverter.py <file>")
+    print("Usage: python3 spreadsheet_inverter.py <file>")
     sys.exit()
 
 # load the workbook, select active sheet
@@ -30,11 +30,11 @@ for row in ws.iter_rows():
 cols = numpy.transpose(rows)
 
 # create the destination workbook
-wbDest = Workbook()
-wsDest = wbDest.active
+wb_dest = Workbook()
+ws_dest = wb_dest.active
 
 # write to destination
 for col in cols:
-    wsDest.append(list(col))
+    ws_dest.append(list(col))
 
-wbDest.save(sys.argv[1])
+wb_dest.save(sys.argv[1])

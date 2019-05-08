@@ -1,6 +1,4 @@
-#! /usr/bin/python3
-
-"""ExtendedMCB - Saves and loads pieces of text to the clipboard.
+"""ExtendedMCB - Save and load pieces of text to the clipboard.
 
                       save <keyword> - Save clipboard to keyword.
                       delete <keyword> - Delete the keyword.

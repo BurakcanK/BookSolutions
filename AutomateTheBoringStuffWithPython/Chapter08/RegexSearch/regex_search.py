@@ -1,5 +1,3 @@
-#! /usr/bin/python3
-
 """Regex Search
 
 Open all .txt files in a folder and searches for any line that matches a

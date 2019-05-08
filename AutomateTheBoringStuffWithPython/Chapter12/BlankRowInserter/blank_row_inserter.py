@@ -1,9 +1,9 @@
-""" Blank Row Inserter
+"""Blank Row Inserter
 
-Given the interval, this script inserts blank rows into the Excel file.
+Given the interval, insert blank rows into the Excel file.
 
 Usage:
-    python3 blankRowInserter.py <startRow> <numOfBlankRows> <file>
+    python3 blank_row_inserter.py <start_row> <num_of_blank_rows> <file>
 """
 
 import openpyxl
@@ -11,7 +11,7 @@ import sys
 
 # ensure usage
 if len(sys.argv) != 4:
-    print("Usage: python3 blankRowInserter.py <startRow> <numOfBlankRows> <file>")
+    print("python3 blank_row_inserter.py <start_row> <num_of_blank_rows> <file>")
     sys.exit()
 
 # load workbook, select active sheet

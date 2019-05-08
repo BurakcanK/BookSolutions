@@ -1,6 +1,6 @@
-""" Looking Busy
+"""Looking Busy
 
-Nudges the mouse cursor slightly every 10 seconds.
+Nudge the mouse cursor slightly every 10 seconds.
 """
 
 import pyautogui

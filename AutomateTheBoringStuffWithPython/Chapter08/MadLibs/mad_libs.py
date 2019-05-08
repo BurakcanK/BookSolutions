@@ -1,5 +1,3 @@
-#! /usr/bin/python3
-
 """Mad Libs
 
 Read in a text file and let the user add their own text anywhere the word ADJECTIVE,

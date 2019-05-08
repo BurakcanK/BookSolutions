@@ -1,7 +1,7 @@
 """Regex Version of strip()
 
 Strip the given characters from the string.
-If nothing is given, strips whitespace characters.
+If nothing is given, strip whitespace characters.
 """
 
 

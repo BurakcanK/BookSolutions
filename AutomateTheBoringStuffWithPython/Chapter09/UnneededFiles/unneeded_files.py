@@ -1,5 +1,3 @@
-#! /usr/bin/python3
-
 """Deleting Unneeded Files
 
 Walk through the given folder tree and search for large files.
