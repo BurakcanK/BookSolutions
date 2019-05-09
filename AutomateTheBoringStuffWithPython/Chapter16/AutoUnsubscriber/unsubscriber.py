@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 # get user info
 email_, password = input("Email: "), input("Password: ")
 
-# connect to gmail's imap server and login, auto logout with 'with' statement
+# connect to gmail's imap server and login, auto logout with "with" statement
 with imaplib.IMAP4_SSL(host="imap.gmail.com") as mail:
     mail.login(email_, password)
 

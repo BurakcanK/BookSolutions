@@ -14,10 +14,15 @@ import sys
 
 
 def main(argv):
-    if len(argv) != 4:
+    if len(argv) != 3:
         print("Usage: python selective_copy.py <src> <dest> <.extension>")
         sys.exit()
-    selective_copy(argv[1], argv[2], argv[3])
+
+    src = os.path.abspath(argv[0])
+    dest = os.path.abspath(argv[1])
+    ext = argv[2]
+
+    selective_copy(src, dest, ext)
 
 
 def selective_copy(src, dest, extension):
@@ -39,4 +44,4 @@ def selective_copy(src, dest, extension):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main(sys.argv[1:])

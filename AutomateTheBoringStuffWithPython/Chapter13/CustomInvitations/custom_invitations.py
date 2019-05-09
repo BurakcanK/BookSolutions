@@ -3,17 +3,26 @@
 Generate a word document with custom invitations.
 """
 
+import os
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 from docx.shared import Pt
 
+GUESTS_FILE = os.path.join(
+    os.path.dirname(__file__),
+    "guests.txt"
+)
+OUTPUT_FILE = os.path.join(
+    os.path.dirname(__file__),
+    "invitations.docx"
+)
+
 # create a word document
 doc = Document()
 
-# read the guests from the file
 guests = []
-with open("guests.txt", "r") as guests_file:
+with open(GUESTS_FILE, "r") as guests_file:
     for line in guests_file:
         guests.append(line)
 
@@ -49,4 +58,4 @@ for guest in guests:
     doc.add_page_break()
 
 # save the document
-doc.save("invitations.docx")
+doc.save(OUTPUT_FILE)

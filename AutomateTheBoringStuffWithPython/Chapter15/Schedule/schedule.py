@@ -17,7 +17,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-img_counter = 0
+photo_counter = 0
 
 response = requests.get("https://www.flickr.com/search/?text=webcomic")
 soup = BeautifulSoup(response.text, "html.parser")
@@ -25,13 +25,11 @@ soup = BeautifulSoup(response.text, "html.parser")
 # find style tags inside divs
 for div in soup.find_all("div"):
     style = div.get("style")
-
-    # if there is no style continue
     if style:
         continue
+
     # extract the url from the style
     match = re.search(r"(?<=url\().*?(?=(_\w)?.jpg\))", style)
-
     if match:
         # arrange the url according to Flickr standards
         photo_url = "https:" + match.group() + "_b.jpg"
@@ -50,11 +48,11 @@ for div in soup.find_all("div"):
         abspath_photos = "/<path to your folder>/Schedule/Photos"
 
         # arrange photo file name
-        photo_file = "{}/photo{:03}.jpg".format(abspath_photos, img_counter)
+        photo_file = "{}/photo{:03}.jpg".format(abspath_photos, photo_counter)
 
         # write the .jpg to the file
         with open(photo_file, "wb") as img_file:
             for chunk in pic.iter_content(100000):
                 img_file.write(chunk)
 
-            img_counter += 1
+            photo_counter += 1

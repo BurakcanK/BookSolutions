@@ -16,7 +16,6 @@ def display_inventory(inventory):
     total = 0
     print("Inventory:\n=========")
 
-    # iterate over keys and values in the dict
     for k, v in inventory.items():
         print(v, k)
         total += v

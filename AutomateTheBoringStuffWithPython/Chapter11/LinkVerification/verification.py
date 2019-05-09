@@ -28,7 +28,6 @@ soup = BeautifulSoup(response.text, "html.parser")
 for anchor in soup.find_all("a"):
     # extract the link from the anchor
     link = anchor.get("href")
-
     if not link.startswith("http"):
         link = url + link
 

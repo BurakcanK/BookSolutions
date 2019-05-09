@@ -1,7 +1,7 @@
-# *Book Information*
+## *Book Information*
 
-# AUTOMATE THE BORING STUFF WITH PYTHON
+## AUTOMATE THE BORING STUFF WITH PYTHON
 
-## Practical Programming for Total Beginners
-### by Al Sweigart
-#### First Edition
+### Practical Programming for Total Beginners
+#### by Al Sweigart
+##### First Edition

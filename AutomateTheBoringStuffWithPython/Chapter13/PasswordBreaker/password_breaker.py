@@ -4,16 +4,21 @@ Try every possible english word on an encrypted PDF until the
 one that's working.
 """
 
+import os
 import PyPDF2
 import sys
+
+DICT = os.path.join(
+    os.path.dirname(__file__),
+    "dictionary.txt"
+)
 
 # ensure usage
 if len(sys.argv) != 2:
     print("Usage: python3 password_breaker.py <pdf_file>")
     sys.exit()
 
-# open the dictionary and the pdf file
-with open("dictionary.txt", "r") as dictionary, open(sys.argv[1], "rb") as pdf_file:
+with open(DICT, "r") as dictionary, open(sys.argv[1], "rb") as pdf_file:
     print("Decryption started...")
     for word in dictionary:
         word = word.strip()

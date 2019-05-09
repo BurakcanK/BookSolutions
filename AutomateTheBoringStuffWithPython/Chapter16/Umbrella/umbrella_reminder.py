@@ -1,9 +1,7 @@
 """Umbrella Reminder
 
-Requests data from the api of http://www.openweathermap.org. Runs at 6 o'clock every day and checks
+Request data from the api of http://www.openweathermap.org. Run at 6 o'clock every day and check
 whether it's raining. If so texts you a reminder to pack an umbrella before leaving the house.
-
-User needs to sign up for the api service and acquire his/her api key for authentication.
 
 Twilio is used to send text messages, user needs to sign up for authentication.
 
@@ -17,11 +15,11 @@ import requests
 from twilio.rest import Client
 
 # change the city to where you live
-city = 'istanbul'
+city = "istanbul"
 
 # send a requests, returns json
 response = requests.get(
-    'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=<apikey>')
+    "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=<apikey>")
 
 # turn requests text response to json data
 weather = json.loads(response.text)

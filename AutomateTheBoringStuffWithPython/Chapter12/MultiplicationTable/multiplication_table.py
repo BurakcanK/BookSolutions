@@ -7,6 +7,7 @@ Usage:
     python3 multiplication_table.py N
 """
 
+import os
 import sys
 from openpyxl import Workbook
 from openpyxl.styles import Font
@@ -14,9 +15,8 @@ from openpyxl.styles import Font
 if len(sys.argv) != 2:
     print("Usage: python3 multiplication_table.py N")
 
-# create a workbook
+# create a workbook and select active worksheet
 wb = Workbook()
-# select the active worksheet
 ws = wb.active
 
 # make the first row and column bold
@@ -28,11 +28,14 @@ ws.append(headers)
 
 # create the table
 for row in range(1, int(sys.argv[1]) + 1):
-    ws.append([i * row for i in headers])
+    ws.append([i*row for i in headers])
 
 # write the first column header
 for i in range(1, int(sys.argv[1]) + 1):
     ws.cell(row=i+1, column=1, value=headers[i])
 
 # save the workbook
-wb.save("mult_table.xlsx")
+wb.save(os.path.join(
+    os.path.dirname(__file__),
+    "mult_table.xlsx")
+)

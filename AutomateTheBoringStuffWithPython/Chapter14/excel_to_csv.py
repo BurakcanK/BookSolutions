@@ -9,29 +9,33 @@ import os
 import openpyxl
 import sys
 
-for excel_file in os.listdir("./excel_spreadsheets"):
-    # skip non xlsx files, load the workbook
+EXCEL_FILES = os.path.join(
+    os.path.dirname(__file__),
+    "excel_spreadsheets"
+)
+
+OUTPUT_DIR = os.path.join(EXCEL_FILES, "excel_to_csv_files")
+if not os.path.exists(OUTPUT_DIR):
+    os.mkdir(OUTPUT_DIR)
+else:
+    print("Directory 'excel_to_csv_files' already exists.", file=sys.stderr)
+    sys.exit()
+
+for excel_file in os.listdir(EXCEL_FILES):
     if not excel_file.endswith(".xlsx"):
         continue
 
     wb = openpyxl.load_workbook(os.path.join("excel_spreadsheets", excel_file))
 
     # loop through every sheet in the workbook
-    for sheet_name in wb.sheet_names:
+    for sheet_name in wb.sheetnames:
         sheet = wb[sheet_name]
-
-        src_dir = os.path.join("excel_spreadsheets", "excel_to_csv_files")
-        if not os.path.exists(src_dir):
-            os.mkdir(src_dir)
-        else:
-            print("Directory 'excel_to_csv_files' already exists.", file=sys.stderr)
-            sys.exit()
 
         # create the CSV filename
         filename = excel_file[:-5] + "_" + sheet_name + ".csv"
 
         # create the csv.writer
-        with open(os.path.join(src_dir, filename), "w", newline="") as csv_file:
+        with open(os.path.join(OUTPUT_DIR, filename), "w", newline="") as csv_file:
             csv_writer = csv.writer(csv_file)
 
             print("Writing data to ->", filename)

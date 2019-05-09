@@ -1,12 +1,12 @@
 """Debugging Coin Toss
 
-This program has several bugs in it, therefore by using 'logging' and 'debugging'
+This program has several bugs in it, therefore by using "logging" and "debugging"
 we are going to find the bugs that keep the program from working correctly.
 """
 
 import random
-
 import logging
+
 logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s",
                     level=logging.DEBUG)
 

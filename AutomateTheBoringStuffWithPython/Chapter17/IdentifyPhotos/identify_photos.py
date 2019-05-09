@@ -15,16 +15,14 @@ for folder_name, sub_folders, filenames in os.walk(PATH_TO_ROOT):
 
     for filename in filenames:
         # check if file extension isn't .png or .jpg
-        if not filename.endswith('.jpg'):
+        if not filename.endswith(".jpg"):
             num_non_photo_files += 1
             continue
 
         try:
-            # open image file using Pillow
             img = Image.open(os.path.abspath(
                 os.path.join(folder_name, filename)))
 
-            # check if width & height are larger than 500
             if img.width > 500 or img.height > 500:
                 # image is large enough to be a photo
                 num_photo_files += 1
@@ -34,7 +32,5 @@ for folder_name, sub_folders, filenames in os.walk(PATH_TO_ROOT):
         except OSError as e:
             print(">> Image", filename, "can not be opened.\nError:", e)
 
-    # if more than half of files were photos
-    # print the absolute path of the folder
     if num_photo_files > num_non_photo_files:
         print(os.path.abspath(folder_name))

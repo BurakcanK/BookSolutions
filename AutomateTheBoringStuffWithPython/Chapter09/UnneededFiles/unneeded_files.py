@@ -11,19 +11,18 @@ import os
 import sys
 
 
-def delete_files(folder, file_size):
+def delete_files(folder, given_size):
     # make sure folder is absolute
     folder = os.path.abspath(folder)
 
-    print("\nFiles greater than >", file_size + "\n")
+    print("Files greater than >", given_size + "\n")
 
     # walk through the folder tree looking at sizes
     for folder_name, _, sub_files in os.walk(folder):
-        # look for subfiles
         for sub_file in sub_files:
-            if os.path.getsize(os.path.join(folder_name, sub_file)) > int(file_size):
-                print("-> ", os.path.join(folder_name, sub_file) + " -> " +
-                      str(os.path.getsize(os.path.join(folder_name, sub_file))) + "\n")
+            file_size = os.path.getsize(os.path.join(folder_name, sub_file))
+            if file_size > int(given_size):
+                print("->", os.path.join(folder_name, sub_file) + " - " + str(file_size))
 
 
 # ensure usage

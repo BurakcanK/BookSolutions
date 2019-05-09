@@ -32,8 +32,8 @@ for current_folder, _, sub_files in os.walk(sys.argv[1]):
                         pdf_writer = PyPDF2.PdfFileWriter()
 
                         # add all pages to the outfile
-                        for pageNum in range(pdf_reader.getNumPages()):
-                            pdf_writer.addPage(pdf_reader.getPage(pageNum))
+                        for page_num in range(pdf_reader.getNumPages()):
+                            pdf_writer.addPage(pdf_reader.getPage(page_num))
 
                         pdf_writer.write(out_pdf_file)
 

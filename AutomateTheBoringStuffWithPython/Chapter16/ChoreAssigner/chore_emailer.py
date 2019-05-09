@@ -13,7 +13,7 @@ emails = ["example1@gmail.com", "example2@gmail.com", "example3@gmail.com",
 
 assigned_chores = dict()
 
-# assing the chores
+# assign the chores
 for i in range(len(chores)):
     random_email = random.choice(emails)
     random_chore = random.choice(chores)

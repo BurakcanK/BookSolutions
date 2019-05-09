@@ -37,7 +37,10 @@ for infile in os.listdir(sys.argv[1]):
 
         # write each line of the file to the cells
         for (index, line) in enumerate(text_file.readlines()):
-            ws.cell(row=index + 2, column=file_counter, value=line)
+            ws.cell(row=index + 2, column=file_counter, value=line.strip())
         file_counter += 1
 
-wb.save("result.xlsx")
+wb.save(os.path.join(
+    os.path.dirname(__file__),
+    "result.xlsx"
+))
