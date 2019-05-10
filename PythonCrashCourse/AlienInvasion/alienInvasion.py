@@ -1,7 +1,7 @@
 import pygame
 from pygame.sprite import Group
 
-import gameFunctions as gf
+import game_functions as gf
 from button import Button
 from gameStats import GameStats
 from scoreboard import Scoreboard
