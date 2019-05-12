@@ -1,57 +1,48 @@
 class Settings():
-    """ A class to store all the settings for Alien Invasion. """
+    """A class to store all settings for Alien Invasion."""
 
     def __init__(self):
-        """ Initialize the game's static settings. """
+        """Initialize the game's static settings."""
         # screen settings
-        self.screenWidth = 1200
-        self.screenHeight = 800
-        self.bgColor = (230, 230, 230)
+        self.screen_width = 1200
+        self.screen_height = 800
+        self.bg_color = (230, 230, 230)
 
         # ship settings
-        self.shipLimit = 3
+        self.ship_limit = 3
 
         # bullet settings
-        self.bulletWidth = 3
-        self.bulletHeight = 15
-        self.bulletColor = (60, 60, 60)
-        self.bulletsAllowed = 3
+        self.bullet_width = 3
+        self.bullet_height = 15
+        self.bullet_color = 60, 60, 60
+        self.bullets_allowed = 3
 
         # alien settings
-        self.fleetDropSpeed = 10
+        self.fleet_drop_speed = 10
 
-        # how quickly the game and score speeds up
-        self.speedUpScale = 1.2
-        self.scoreScale = 1.5
+        # how quickly the game speeds up
+        self.speedup_scale = 1.1
+        # how quickly the alien point values increase
+        self.score_scale = 1.5
 
-        self.initializeDynamicSettings()
+        self.initialize_dynamic_settings()
 
-    def initializeDynamicSettings(self):
-        """ Initialize settings that change throughout the game. """
-        self.shipSpeedFactor = 1.5
-        self.bulletSpeedFactor = 3
-        self.alienSpeedFactor = 1
+    def initialize_dynamic_settings(self):
+        """Initialize settings that change throughout the game."""
+        self.ship_speed_factor = 1.5
+        self.bullet_speed_factor = 3
+        self.alien_speed_factor = 1
 
-        # fleet direction, 1 for right, -1 for left
-        self.fleetDirection = 1
+        # fleet direction of 1 represents right; -1 represents left
+        self.fleet_direction = 1
 
         # scoring
-        self.alienPoints = 50
+        self.alien_points = 50
 
-    def increaseSpeed(self):
-        """ Increase speed settings and alien point values. """
-        self.shipSpeedFactor *= self.speedUpScale
-        self.bulletSpeedFactor *= self.speedUpScale
-        self.alienSpeedFactor *= self.speedUpScale
+    def increase_speed(self):
+        """Increase speed settings and alien point values."""
+        self.ship_speed_factor *= self.speedup_scale
+        self.bullet_speed_factor *= self.speedup_scale
+        self.alien_speed_factor *= self.speedup_scale
 
-        self.alienPoints *= self.scoreScale
-
-    def printAllSettings(self):
-        print("Screen width:", self.screenWidth)
-        print("Screen height:", self.screenHeight)
-        print("Background color:", self.bgColor)
-        print("Ship speed:", self.shipSpeedFactor)
-        print("Bullet speed:", self.bulletSpeedFactor)
-        print("Bullet width:", self.bulletWidth)
-        print("Bullet height:", self.bulletHeight)
-        print("Bullet color:", self.bulletColor)
+        self.alien_points = int(self.alien_points * self.score_scale)
