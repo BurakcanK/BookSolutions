@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# my settings
+LOGIN_URL = "/users/login"
+
+# settings for django-bootstrap3
+BOOTSTRAP3 = {
+    "include_jquery": True,
+}
 
 # Application definition
 
@@ -37,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # third party apps
+    "bootstrap3",
 
     # my apps
     "learning_logs",
