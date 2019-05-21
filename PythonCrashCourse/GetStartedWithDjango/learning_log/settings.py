@@ -25,15 +25,36 @@ SECRET_KEY = 'u99(+js*tsf7i_m%@1d=&y61%3md73ystzqnk*!ytlu-8os)s9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # my settings
 LOGIN_URL = "/users/login"
+LOGOUT_REDIRECT_URL = "learning_logs:index"
 
 # settings for django-bootstrap3
 BOOTSTRAP3 = {
     "include_jquery": True,
 }
+
+# heroku settings
+if os.getcwd() == "/app":
+    import dj_database_url
+    DATABASES = {
+        "default": dj_database_url.config(default="postgres://localhost")
+    }
+
+    # honor the "X-Forwarded-Proto" header for request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+    # allow all host headers
+    ALLOWED_HOSTS = ["*"]
+
+    # static asset configuration
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = "staticfiles"
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, "static")
+    )
 
 # Application definition
 

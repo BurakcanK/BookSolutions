@@ -3,8 +3,12 @@ bs4==0.0.1
 certifi==2019.3.9
 chardet==3.0.4
 cycler==0.10.0
+dj-database-url==0.5.0
+dj-static==0.0.6
 Django==2.2.1
+django-bootstrap3==11.0.0
 et-xmlfile==1.0.1
+gunicorn==19.9.0
 idna==2.8
 jdcal==1.4.1
 kiwisolver==1.1.0
@@ -13,6 +17,7 @@ matplotlib==3.0.3
 numpy==1.16.3
 openpyxl==2.6.2
 Pillow==6.0.0
+psycopg2==2.8.2
 PyAutoGUI==0.9.42
 pygal==2.4.0
 pygal-maps-world==1.0.2
@@ -35,6 +40,7 @@ selenium==3.141.0
 six==1.12.0
 soupsieve==1.9.1
 sqlparse==0.3.0
+static3==0.7.0
 twilio==6.26.3
 urllib3==1.24.2
 xlib==0.21
