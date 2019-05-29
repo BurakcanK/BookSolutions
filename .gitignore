@@ -1,7 +1,9 @@
 .idea/
 .ipynb_checkpoints/
-.vscode
+.vscode/
 
 __pycache__/
 
 venv/
+
+*.pkl
