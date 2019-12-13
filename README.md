@@ -1,4 +1,4 @@
-# BookSolutions
+# book-solutions
 
 This repo represents my own solutions for the example or practice questions that are being asked in different coding books.
 

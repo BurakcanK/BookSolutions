@@ -1,6 +1,6 @@
 ## *Book Information*
 
-## AUTOMATE THE BORING STUFF WITH PYTHON
+## Automate the Boring Stuff with Python
 
 ### Practical Programming for Total Beginners
 #### by Al Sweigart
