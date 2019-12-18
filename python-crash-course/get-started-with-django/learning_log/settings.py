@@ -25,7 +25,7 @@ SECRET_KEY = 'pg3%-*@euju)n8e6lek-rsf@oul*&-q7nznh3c&@raoc1tx9!7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # my settings
 LOGIN_URL = "/users/login"
@@ -34,6 +34,26 @@ LOGIN_URL = "/users/login"
 BOOTSTRAP4 = {
     "include_jquery": True,
 }
+
+# heroku settings
+if os.getcwd() == "/app":
+    import dj_database_url
+    DATABASES = {
+        "default": dj_database_url.config(default="postgres://localhost")
+    }
+
+    # honor the "X-Forwarded-Proto" header for request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+    # allow all host headers
+    ALLOWED_HOSTS = ["*"]
+
+    # static asset configuration
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = "staticfiles"
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, "static"),
+    )
 
 # Application definition
 

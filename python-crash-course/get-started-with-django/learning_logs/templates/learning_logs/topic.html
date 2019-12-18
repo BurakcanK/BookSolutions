@@ -5,11 +5,7 @@
 {% endblock header %}
 
 {% block content %}
-<p>Topic: {{ topic }}</p>
-<p>Entries:</p>
-<p>
-    <a href="{% url 'learning_logs:new_entry' topic.id %}">add new entry</a>
-</p>
+<p>Entries</p>
 <ul>
     {% for entry in entries %}
     <div class="panel panel-default">
@@ -30,4 +26,7 @@
     There are no entries for this topic yet.
     {% endfor %}
 </ul>
+<p>
+    <a href="{% url 'learning_logs:new_entry' topic.id %}">add new entry</a>
+</p>
 {% endblock content %}

@@ -35,12 +35,12 @@
                     <li class="nav-item">
                         <a class="nav-link">Hello, {{ user.username }}.</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:logout' %}">log out</a></li>
+                        <a class="nav-link" href="{% url 'users:logout' %}">Log out</a></li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:register' %}">register</a></li>
+                        <a class="nav-link" href="{% url 'users:register' %}">Register</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:login' %}">log in</a></li>
+                        <a class="nav-link" href="{% url 'users:login' %}">Log in</a></li>
                     {% endif %}
                 </ul>
             </div>
