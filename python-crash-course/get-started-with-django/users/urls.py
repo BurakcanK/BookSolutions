@@ -1,17 +1,14 @@
 """Defines URL patterns for users."""
 
-from django.contrib.auth import views as auth_views
-from django.urls import path
+from django.urls import path, include
 
 from users import views
 
+app_name = "users"
 urlpatterns = [
-    # login page
-    path("login/", auth_views.LoginView.as_view(template_name="users/login.html"), name="login"),
+    # include default auth urls
+    path("", include("django.contrib.auth.urls")),
 
     # registration page
     path("register/", views.register, name="register"),
-
-    # logout page
-    path("logout/", auth_views.LogoutView.as_view(), name="logout")
 ]

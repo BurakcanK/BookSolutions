@@ -4,11 +4,12 @@ from django.urls import path
 
 from learning_logs import views
 
+app_name = "learning_logs"
 urlpatterns = [
     # home page
     path("", views.index, name="index"),
 
-    # show all topics
+    # page that shows all topics
     path("topics/", views.topics, name="topics"),
 
     # detail page for a single topic
