@@ -13,7 +13,7 @@ mccabe==0.6.1
 MouseInfo==0.1.2
 numpy==1.17.4
 openpyxl==3.0.2
-Pillow==6.2.1
+Pillow==8.2.0
 PyAutoGUI==0.9.48
 pycodestyle==2.5.0
 PyGetWindow==0.0.8
